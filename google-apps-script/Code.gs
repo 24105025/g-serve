@@ -6,7 +6,7 @@
  */
 
 // Choose a long random password (20+ characters). The SAME text goes into 02-connect-email.sql.
-const SECRET = 'CHANGE-ME-TO-A-LONG-RANDOM-PASSWORD';
+const SECRET = 'G-SERVE 2026 - LIFETIME';
 
 // ---------------------------------------------------------------------
 function doPost(e) {
