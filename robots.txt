@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://YOUR-USERNAME.github.io/g-serve/sitemap.xml
+Sitemap: https://24105025.github.io/g-serve/sitemap.xml
