@@ -1,0 +1,28 @@
+name: Keep Supabase awake
+
+# Free Supabase projects pause after 7 days with no activity.
+# This sends one tiny request every Monday and Thursday so yours never pauses.
+
+on:
+  schedule:
+    - cron: '17 3 * * 1,4'     # 03:17 UTC on Monday and Thursday
+  workflow_dispatch:           # also lets you run it by hand from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call the database
+        env:
+          # >>> EDIT these two lines (same values as in js/store.js; they are public by design) <<<
+          SUPABASE_URL: https://YOUR-PROJECT-REF.supabase.co
+          SUPABASE_KEY: YOUR-PUBLISHABLE-KEY
+        run: |
+          set -e
+          if [[ "$SUPABASE_URL" == *YOUR-* ]]; then echo "Edit keep-alive.yml first"; exit 1; fi
+          AUTH=()
+          if [[ "$SUPABASE_KEY" == eyJ* ]]; then AUTH=(-H "Authorization: Bearer $SUPABASE_KEY"); fi
+          curl -fsS -X POST "$SUPABASE_URL/rest/v1/rpc/get_config" \
+            -H "apikey: $SUPABASE_KEY" "${AUTH[@]}" \
+            -H "Content-Type: application/json" -d '{}'
+          echo

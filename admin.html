@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manager dashboard | G-Serve</title><meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0e3322"><link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script><script src="js/tw.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-pine text-chalk font-body antialiased">
+  <header class="bg-deep border-b border-white/10"><nav class="max-w-6xl mx-auto flex items-center justify-between px-5 h-16" aria-label="Main">
+    <a href="index.html" class="font-display text-2xl">G-Serve</a>
+    <div class="flex gap-6 text-sm"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="book.html">Book a court</a></div>
+  </nav></header>
+  <main class="max-w-6xl mx-auto px-5 py-10">
+    <h1 class="font-display text-4xl">Manager dashboard</h1>
+    <section id="gate" class="panel mt-6 max-w-sm"><form id="gate-form" class="grid gap-3">
+      <label class="field">Manager PIN<input id="pin" type="password" inputmode="numeric" required autocomplete="off"></label>
+      <button class="bg-lime text-deep font-bold py-3 rounded-full">Open dashboard</button><p id="gate-msg" role="status" class="text-sm"></p>
+    </form></section>
+    <div id="dash" hidden>
+      <div class="mt-6 flex flex-wrap items-end gap-4">
+        <label class="field">Month<input id="month" type="month"></label>
+        <button id="seed" class="border border-chalk/50 rounded-full px-5 py-2.5 hover:bg-white/10">Add sample bookings</button>
+        <button id="clear" class="underline py-2.5">Clear all</button>
+      </div>
+      <div id="stats" class="mt-6 grid sm:grid-cols-4 gap-4"></div>
+      <section class="panel mt-6"><h2 class="font-display text-2xl">Daily revenue</h2><div id="chart" class="mt-4 flex items-stretch gap-1 h-48"></div></section>
+      <section class="panel mt-6"><h2 class="font-display text-2xl">All transactions</h2><p class="mt-1 text-sm opacity-80">Before you press Confirm, check that the GCash reference number and amount match your GCash transaction history.</p><div class="overflow-x-auto mt-3"><table class="w-full text-sm text-left min-w-[36rem]"><thead><tr class="opacity-70"><th class="p-2">Reference</th><th class="p-2">Customer</th><th class="p-2">Slots</th><th class="p-2">Amount</th><th class="p-2">Status</th></tr></thead><tbody id="tx"></tbody></table></div></section>
+      <section class="panel mt-6"><h2 class="font-display text-2xl">Booking calendar</h2><div class="overflow-x-auto mt-3"><div id="ov" class="grid grid-cols-7 gap-1 min-w-[42rem]"></div></div></section>
+    </div>
+  </main>
+  <script src="js/store.js" defer></script><script src="js/admin.js" defer></script>
+</body>
+</html>

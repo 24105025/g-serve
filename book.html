@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book a court | G-Serve</title>
+  <meta name="description" content="Book pickleball courts and paddle rentals online. Choose dates and times, then pay by GCash QR.">
+  <meta name="theme-color" content="#0e3322"><link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script><script src="js/tw.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-pine text-chalk font-body antialiased">
+  <header class="bg-deep border-b border-white/10"><nav class="max-w-6xl mx-auto flex items-center justify-between px-5 h-16" aria-label="Main">
+    <a href="index.html" class="font-display text-2xl">G-Serve</a>
+    <div class="flex gap-6 text-sm"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="admin.html">Manager</a></div>
+  </nav></header>
+  <main class="max-w-6xl mx-auto px-5 py-10">
+    <h1 class="font-display text-4xl">Book a court</h1>
+    <p class="mt-2 max-w-xl text-chalk/80">Pick one or more days, choose your hours, add paddle rental if you need it, then pay by GCash QR.</p>
+    <div id="rates" class="mt-5 flex flex-wrap gap-3"></div>
+    <div class="mt-8 grid lg:grid-cols-3 gap-6">
+      <div class="lg:col-span-2 grid gap-6 self-start">
+        <section class="panel" aria-label="Choose dates"><div id="cal"></div></section>
+        <section class="panel" aria-label="Choose times" aria-live="polite"><div id="slots"></div></section>
+      </div>
+      <aside class="panel self-start lg:sticky lg:top-6">
+        <div id="checkout">
+          <h2 class="font-display text-2xl">Your booking</h2>
+          <ul id="cart" class="divide-y divide-white/15 mt-2"></ul>
+          <p class="flex justify-between font-bold text-lg mt-3"><span>Total</span><span id="total"></span></p>
+          <form id="form" class="grid gap-3 mt-4">
+            <label class="field">Name<input name="name" required autocomplete="name"></label>
+            <label class="field">Email<input name="email" type="email" required autocomplete="email"></label>
+            <label class="field">Mobile number<input name="phone" type="tel" required autocomplete="tel"></label>
+            <input name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button id="pay" class="bg-lime text-deep font-bold px-6 py-3 rounded-full disabled:opacity-40 disabled:cursor-not-allowed">Pay with GCash QR</button>
+          </form>
+        </div>
+        <div id="done" hidden></div>
+      </aside>
+    </div>
+    <section class="panel mt-8 max-w-xl"><h2 class="font-display text-2xl">Find my bookings</h2>
+      <form id="find" class="flex gap-3 mt-3"><input id="find-email" type="email" required placeholder="Email used to book" aria-label="Email used to book" class="flex-1 rounded-lg bg-pine border border-white/30 px-3 py-2"><button class="bg-lime text-deep font-bold px-5 rounded-full">Search</button></form>
+      <ul id="mine" class="divide-y divide-white/15 mt-3"></ul></section>
+  </main>
+  <dialog id="dlg">
+    <h2 class="font-display text-2xl">Pay with GCash</h2>
+    <img src="assets/gcash-qr.jpg" alt="G-Serve GCash InstaPay QR code" class="mt-3 w-full h-auto rounded-lg bg-white">
+    <p class="mt-3 text-center font-bold text-xl">Send exactly <span id="dlg-total"></span></p>
+    <p class="mt-1 text-center text-sm opacity-80">Scan with GCash or any InstaPay-enabled bank app, then enter the reference number from your receipt.</p>
+    <label class="field mt-3">Reference number<input id="gref" inputmode="numeric" autocomplete="off"></label>
+    <p id="gerr" role="alert" class="mt-1 text-sm text-red-300"></p>
+    <div class="mt-3 grid gap-2"><button id="paid" class="bg-lime text-deep font-bold py-3 rounded-full">I've paid</button><button id="cancel" class="underline py-1">Cancel</button></div>
+  </dialog>
+  <script src="js/store.js" defer></script><script src="js/book.js" defer></script>
+</body>
+</html>
