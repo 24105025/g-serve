@@ -15,8 +15,8 @@ jobs:
       - name: Call the database
         env:
           # >>> EDIT these two lines (same values as in js/store.js; they are public by design) <<<
-          SUPABASE_URL: https://YOUR-PROJECT-REF.supabase.co
-          SUPABASE_KEY: YOUR-PUBLISHABLE-KEY
+          SUPABASE_URL: https://iszzbxzumizzjelxkmks.supabase.co  
+          SUPABASE_KEY: sb_publishable_Cscxe-QNDqbqIIcObeRFIQ_uQ4VaBRo
         run: |
           set -e
           if [[ "$SUPABASE_URL" == *YOUR-* ]]; then echo "Edit keep-alive.yml first"; exit 1; fi
