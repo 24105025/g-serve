@@ -10,9 +10,9 @@
 
   /* ===== EDIT THESE THREE LINES ================================================ */
   const CONFIG = {
-    SUPABASE_URL: 'https://YOUR-PROJECT-REF.supabase.co',
-    SUPABASE_KEY: 'YOUR-PUBLISHABLE-KEY',   // "Publishable key" (sb_publishable_...) or legacy "anon" key. NEVER the secret/service_role key.
-    MANAGER_EMAIL: 'manager@example.com'    // the manager's email (same one used in supabase/01-schema.sql)
+    SUPABASE_URL: 'https://iszzbxzumizzjelxkmks.supabase.co',
+    SUPABASE_KEY: 'sb_publishable_Cscxe-QNDqbqIIcObeRFIQ_uQ4VaBRo',   // "Publishable key" (sb_publishable_...) or legacy "anon" key. NEVER the secret/service_role key.
+    MANAGER_EMAIL: 'ana.gementizaa@gmail.com'    // the manager's email (same one used in supabase/01-schema.sql)
   };
   /* ============================================================================= */
 
